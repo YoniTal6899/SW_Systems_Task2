@@ -1,30 +1,33 @@
 #include <stdio.h>
 #include "my_mat.h"
+#define N 10
 
 int main()
 {
+    int mat[N][N];
     char action;
-    int value;
-    scanf("%c", &action);
-    while(action!='D')
+    scanf("%c",&action);
+    while ('D'!=action)
     {
         switch (action)
         {
         case 'A':
-            scanf("%c", &action);
+            funcA(mat);
+            scanf(" %c",&action);
             break;
         case 'B':
-            scanf("%c", &action);
+            funcB(mat);
+            scanf(" %c",&action);
             break;
         case 'C':
-            scanf("%c", &action);
+            funcC(mat);
+            scanf(" %c",&action);
             break;
-        case 'D':
-            return 0;        
+                
         default:
-            printf("Invalid Input! Enter action");
-            scanf("%c", &action);
+            return 0;
         }
     }
+    
     return 0;
 }
