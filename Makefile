@@ -4,9 +4,9 @@ FLAGS= -Wall -g
 .PHONY: all
 
 all: lib.a main.o
-	$(CC) $(FLAGS) -o connections.out main.o my_mat.o
+	$(CC) $(FLAGS) -o connections main.o my_mat.o
 
-connections.out: lib.a main.o
+connections: lib.a main.o
 	$(CC) $(FLAGS) -o main.o my_mat.o connections
 
 lib.a: my_mat.o
