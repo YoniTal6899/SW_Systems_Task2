@@ -1,15 +1,16 @@
 CC=gcc
 AR=ar
-OBJECTS_MAIN=main.o
-OBJECTS_LIB=mylib.o
 FLAGS= -Wall -g
 .PHONY: all
 
-all: my_mat.o main.o
+all: lib.a main.o
 	$(CC) $(FLAGS) -o connections.out main.o my_mat.o
 
-connections.out: my_mat.o main.o
+connections.out: lib.a main.o
 	$(CC) $(FLAGS) -o main.o my_mat.o connections
+
+lib.a: my_mat.o
+	$(AR) rcs -o lib.a my_mat.o
 
 my_mat.o: my_mat.c my_mat.h
 	$(CC) $(FLAGS) -c my_mat.c 
